@@ -1,1 +1,1 @@
-# Implement transaction
+# Implement transaction logic

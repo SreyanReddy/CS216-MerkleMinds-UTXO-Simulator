@@ -1,1 +1,1 @@
-# Implement validator
+# Implement validator logic
