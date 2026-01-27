@@ -74,7 +74,20 @@ class UTXOManger():
             return True
         
     def get_utxos_for_owner(self, owner):
-        pass
+
+        if isinstance(owner, str) == False or owner.strip() == "":
+            print("Error: Owner must be a non-empty string")
+            return False
+        
+        owner = owner.strip()
+        output = []
+
+        for (tx_id, index), (amount, utxo_owner) in self.utxo_set.items():
+            if utxo_owner == owner:
+                output.append(((tx_id, index), amount))
+        
+        return output
+        
         
         
 
