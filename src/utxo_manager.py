@@ -61,10 +61,21 @@ class UTXOManger():
         return total
     
     def exists(self, tx_id, index):
-        pass
-
+        
+        if isinstance(tx_id, str) == False or tx_id.strip() == "":
+            print("Error: Transaction ID must be a non-empty string")
+            return False
+        if isinstance(index, int) == False or index < 0:
+            print("Error: Index must be a non-negative integer")
+            return False
+        
+        if (tx_id, index) in self.utxo_set:
+            print(f"UTXO exists (tx_id:{tx_id.strip()}, index:{index})")
+            return True
+        
     def get_utxos_for_owner(self, owner):
         pass
+        
         
 
         
