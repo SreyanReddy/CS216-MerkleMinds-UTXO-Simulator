@@ -46,10 +46,20 @@ class UTXOManger():
         del self.utxo_set[key]
         return True
 
-
     def get_balance(self, owner):
-        pass
+        
+        if isinstance(owner, str) == False or owner.strip() == "":
+            print("Error: Owner must be a non-empty string")
+            return False
+        
+        owner = owner.strip()
 
+        total = 0.0
+        for (amount, utxo_owner) in self.utxo_set.values():
+            if utxo_owner == owner:
+                total += float(amount)
+        return total
+    
     def exists(self, tx_id, index):
         pass
 
