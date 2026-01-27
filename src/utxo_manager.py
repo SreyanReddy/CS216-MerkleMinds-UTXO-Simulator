@@ -7,13 +7,13 @@ class UTXOManger():
         if tx_id is None or tx_id == "":
             print("Error: Transaction ID cannot be empty")
             return False
-        if isinstance(index, int) == 0 or index < 0:
+        if isinstance(index, int) == False or index < 0:
             print("Error: Index must be a non-negative integer")
             return False
         if isinstance(amount, int or float) or amount <=0:
             print("Error: Amount must be a positive integer")
             return False
-        if owner is None or isinstance(owner, str) == 0 or owner.strip() == "":
+        if owner is None or isinstance(owner, str) == False or owner.strip() == "":
             print("Error: Owner must be a non-empty string")
             return False
         
@@ -26,7 +26,26 @@ class UTXOManger():
         return True
     
     def remove_utxo(self, tx_id, index):
-        pass
+
+        if isinstance(tx_id, str) == False or tx_id.strip() == "":
+            print("Error: Transaction ID must be a non-empty string")
+            return False
+        
+        tx_id = tx_id.strip()
+
+        if isinstance(index, int) == False or index < 0:
+            print("Error: Index must be a non-negative integer")
+            return False
+        
+        key = (tx_id, index)
+
+        if key not in self.utxo_set:
+            print(f"Error: UTXO set not found for (tx_id={tx_id}, index={index})")
+            return False
+        
+        del self.utxo_set[key]
+        return True
+
 
     def get_balance(self, owner):
         pass
