@@ -16,6 +16,7 @@ def validate_transaction(tx, utxo_manager, mempool):
         
         if not utxo_manager.exists(*key):
             return False, "UTXO does not exist"
+        print("UTXO exists (transaction validation)")
 
         
         amount, owner = utxo_manager.utxo_set[key]
