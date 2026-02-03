@@ -85,8 +85,17 @@ def main():
             print(mempool)  
         elif choice == "4":
             miner = input("Enter miner name: ").strip()
-            result = mine_block(miner, mempool, utxo, num_txs=5)
-            print(result, "\n")
+            n_in_mempool = len(mempool.transactions)
+            print("Mining block...")
+            included, total_fees, _ = mine_block(miner, mempool, utxo, num_txs=5)
+            n = len(included)
+            tx_word = "transaction" if n == 1 else "transactions"
+            print(f"Mempool had {n_in_mempool} {tx_word}.")
+            print(f"Selected {n} {tx_word} from mempool.")
+            print(f"Total fees: {total_fees:.3f} BTC")
+            print(f"Miner {miner} receives {total_fees:.3f} BTC")
+            print("Block mined successfully!")
+            print(f"Removed {n} {tx_word} from mempool.\n")
         elif choice == "5":
             run_test_scenarios(utxo, mempool)
         elif choice == "6":
