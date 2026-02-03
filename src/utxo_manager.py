@@ -1,4 +1,4 @@
-class UTXOManger():
+class UTXOManager():
     def __init__(self):
         self.utxo_set = {}
 
@@ -10,13 +10,16 @@ class UTXOManger():
         if isinstance(index, int) == False or index < 0:
             print("Error: Index must be a non-negative integer")
             return False
-        if isinstance(amount, int or float) or amount <=0:
-            print("Error: Amount must be a positive integer")
+        if isinstance(amount, (int, float)) == False or amount <=0:
+            print("Error: Amount must be a positive number")
             return False
         if owner is None or isinstance(owner, str) == False or owner.strip() == "":
             print("Error: Owner must be a non-empty string")
             return False
-        
+
+        tx_id = tx_id.strip()
+        owner = owner.strip()
+
         key = (tx_id, index)
         if key in self.utxo_set:
             print(f"Error: UTXO already exists for (tx_id={tx_id}, index={index})")
