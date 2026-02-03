@@ -73,8 +73,8 @@ class UTXOManager():
             return False
         
         if (tx_id, index) in self.utxo_set:
-            print(f"UTXO exists (tx_id:{tx_id.strip()}, index:{index})")
             return True
+        return False
         
     def get_utxos_for_owner(self, owner):
 

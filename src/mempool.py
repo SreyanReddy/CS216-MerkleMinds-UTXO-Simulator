@@ -18,6 +18,7 @@ class Mempool:
 
             if not utxo_manager.exists(inp["prev_tx"], inp["index"]):
                 return False, f"UTXO {utxo_key} does not exist"
+            print("UTXO exists (mempool check)")
 
         self.transactions.append(tx)
 

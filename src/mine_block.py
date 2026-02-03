@@ -1,5 +1,3 @@
-import mempool
-
 def mine_block(miner_address, mempool, utxo_manager, num_txs=5, block_id=None):
     candidates = mempool.get_top_transactions(num_txs)
 
