@@ -8,8 +8,8 @@ A local simulation of a Bitcoin-style transaction system using the UTXO model: t
 
 - **Team name:** [Merkle Minds]
 - **Members:**
-  1. [Sreyan Reddy Regatte] — [240051018]
-  2. [Velpula Vikram Varma] — [240001078]
+  1. [Velpula Vikram Varma] — [240001078]
+  2. [Sreyan Reddy Regatte] — [240051018]
   3. [K Manas Joel] — [240004025]
   4. [Chinnakondu Hemanth Royal] — [240041010]
 
